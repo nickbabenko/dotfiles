@@ -45,5 +45,12 @@ iterm2_print_user_vars() {
 }
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+gitpush() {
+  git add .
+  git commit -am "$1"
+  git push
+}
+
 # Aliases
 alias k='kubectl'
+alias gitpush="gitpush"
