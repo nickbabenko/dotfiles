@@ -54,7 +54,7 @@ function! s:show_hover_doc()
   call timer_start(500, 'ShowDocIfNoDiagnostic')
 endfunction
 
-# NerdTree
+" NerdTree
 autocmd VimEnter *
             \   if !argc()
             \ |   Startify
@@ -64,7 +64,7 @@ autocmd VimEnter *
 
 map <C-f> :NERDTreeToggle<CR>
 
-# Coc
+" Coc
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
@@ -79,8 +79,8 @@ nmap <leader>do <Plug>(coc-codeaction)
 
 nmap <leader>rn <Plug>(coc-rename)
 
-# Vim
-# Split navigation
+" Vim
+" Split navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
