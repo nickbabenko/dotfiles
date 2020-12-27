@@ -47,4 +47,7 @@ curl -fLo '~/.vim/autoload/plug.vim' --create-dirs \
 # Setup git hooks
 cp hooks/* .git/hooks
 
+# Update vim plug
+vim +PlugUpdate +qall
+
 echo "Done!"
