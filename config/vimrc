@@ -8,6 +8,8 @@ set backspace=2
 set ruler
 set ttyfast
 set mouse=a
+set splitbelow
+set splitright
 
 let b:pluginList = split(globpath('~/.vim/custom/plugins', '*.vim'), '\n')
 let b:fileList = split(globpath('~/.vim/custom', '*.vim'), '\n')
