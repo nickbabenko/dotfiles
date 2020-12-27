@@ -17,6 +17,9 @@ else
   brew update
 fi
 
+# Install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Cleanup files for install
 sudo rm -rf ~/.vimrc > /dev/null 2>&1
 sudo rm -rf ~/.vim/custom > /dev/null 2>&1
