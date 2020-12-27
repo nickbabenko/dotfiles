@@ -3,6 +3,9 @@
 #brew doctor
 #brew update
 
+# Install Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # Cleanup files for install
 sudo rm -rf ~/.vimrc > /dev/null 2>&1
 sudo rm -rf ~/.vim/customx > /dev/null 2>&1
