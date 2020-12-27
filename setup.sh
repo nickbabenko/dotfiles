@@ -18,7 +18,11 @@ else
 fi
 
 # Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ -d ~/.oh-my-zsh ]
+then
+  echo "Installing Oh My Zsh"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # Cleanup files for install
 sudo rm -rf ~/.vimrc > /dev/null 2>&1
