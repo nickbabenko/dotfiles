@@ -1,0 +1,49 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/nickbabenko/.oh-my-zsh"
+
+# Theme
+ZSH_THEME="robbyrussell"
+
+# Plugins
+plugins=(
+  git 
+  kubectl 
+  brew
+  common-aliases 
+  gitfast 
+  zsh-syntax-highlighting
+  docker
+  docker-compose
+  doctl
+  zsh-autosuggestions
+  helm
+  vscode
+  kubectl
+)
+
+source $ZSH/oh-my-zsh.sh
+
+export EDITOR='vim'
+
+# Update path
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+kubectl-events() {
+  kubectl get events --all-namespaces --watch -o 'go-template={{.lastTimestamp}} {{.involvedObject.kind}} {{.message}} ({{.involvedObject.name}}){{"\n"}}'
+}
+
+iterm2_print_user_vars() {
+  iterm2_set_user_var kubecontext "$(kubectl config current-context)/$(kubectl config view --minify --output 'jsonpath={..namespace}')"
+}
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Aliases
+alias k='kubectl'
