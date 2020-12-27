@@ -1,5 +1,3 @@
-# Setup
-
 # Install dotfiles
 if [ -d ~/dotfiles ] 
 then
