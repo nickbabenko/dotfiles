@@ -82,13 +82,6 @@ nmap <leader>do <Plug>(coc-codeaction)
 
 nmap <leader>rn <Plug>(coc-rename)
 
-" Vim
-" Split navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 "function GitPush(arg)
 "   git add .
 "  git commit -m arg[0]
