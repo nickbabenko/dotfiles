@@ -54,6 +54,7 @@ function! s:show_hover_doc()
   call timer_start(500, 'ShowDocIfNoDiagnostic')
 endfunction
 
+# NerdTree
 autocmd VimEnter *
             \   if !argc()
             \ |   Startify
@@ -63,6 +64,7 @@ autocmd VimEnter *
 
 map <C-f> :NERDTreeToggle<CR>
 
+# Coc
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)
@@ -76,6 +78,13 @@ nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 nmap <leader>do <Plug>(coc-codeaction)
 
 nmap <leader>rn <Plug>(coc-rename)
+
+# Vim
+# Split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 "function GitPush(arg)
 "   git add .
