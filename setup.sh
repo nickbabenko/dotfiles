@@ -1,4 +1,5 @@
-# Install dotfiles if [ -d ~/dotfiles ] 
+# Install dotfiles 
+if [ -d ~/dotfiles ] 
 then
    cd ~/dotfiles
    git pull
