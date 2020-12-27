@@ -7,3 +7,4 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/nickbabenko/dotfiles/mas
 ## TODO
 
 - [ ] Separate vimrc
+- [ ] Finish gitpush command

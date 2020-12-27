@@ -77,3 +77,9 @@ nmap <leader>do <Plug>(coc-codeaction)
 
 nmap <leader>rn <Plug>(coc-rename)
 
+"function GitPush(arg)
+"   git add .
+"  git commit -m arg[0]
+"  git push
+"endfunction
+"command -nargs=1 GitPush call GitPush(<f-args>)
