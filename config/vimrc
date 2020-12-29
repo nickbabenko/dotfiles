@@ -10,6 +10,7 @@ set ttyfast
 set mouse=a
 set splitbelow
 set splitright
+set shiftwidth=2
 
 let b:pluginList = split(globpath('~/.vim/custom/plugins', '*.vim'), '\n')
 let b:fileList = split(globpath('~/.vim/custom', '*.vim'), '\n')
@@ -86,6 +87,9 @@ nnoremap <silent> <space>s :<C-u>CocList -I symbols<cr>
 nmap <leader>do <Plug>(coc-codeaction)
 
 nmap <leader>rn <Plug>(coc-rename)
+
+" Ctrlp
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 "function GitPush(arg)
 "   git add .
