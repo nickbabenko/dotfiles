@@ -6,6 +6,7 @@ brew "tmux"
 
 # Vim tools
 brew "vim"
+brew "ripgrep"
 
 # Source control tools
 brew "hub"

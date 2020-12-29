@@ -34,6 +34,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'joshdick/onedark.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'jremmen/vim-ripgrep'
 
 call plug#end()
 
