@@ -52,6 +52,8 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
   let g:coc_global_extensions += ['coc-eslint']
 endif
 
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 map <C-i> gt
 
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
@@ -72,6 +74,7 @@ autocmd VimEnter *
             \ | endif
 
 map <C-f> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 " Coc
 nmap <silent> gd <Plug>(coc-definition)
@@ -90,6 +93,9 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Ctrlp
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" Startify
+autocmd BufDelete * if empty(filter(tabpagebuflist(), '!buflisted(v:val)')) | Startify | endif
 
 "function GitPush(arg)
 "   git add .
