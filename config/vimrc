@@ -28,8 +28,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'gosukiwi/vim-atom-dark'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
+
+syntax on
+colorscheme onedark
 
 let g:coc_global_extensions = [
   \ 'coc-tsserver'
