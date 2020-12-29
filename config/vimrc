@@ -8,6 +8,8 @@ set backspace=2
 set ruler
 set ttyfast
 set mouse=a
+set splitbelow
+set splitright
 
 let b:pluginList = split(globpath('~/.vim/custom/plugins', '*.vim'), '\n')
 let b:fileList = split(globpath('~/.vim/custom', '*.vim'), '\n')
@@ -30,6 +32,7 @@ Plug 'mhinz/vim-startify'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'gosukiwi/vim-atom-dark'
 Plug 'joshdick/onedark.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -59,6 +62,7 @@ function! s:show_hover_doc()
   call timer_start(500, 'ShowDocIfNoDiagnostic')
 endfunction
 
+" NerdTree
 autocmd VimEnter *
             \   if !argc()
             \ |   Startify
@@ -68,6 +72,7 @@ autocmd VimEnter *
 
 map <C-f> :NERDTreeToggle<CR>
 
+" Coc
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gr <Plug>(coc-references)

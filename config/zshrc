@@ -32,16 +32,6 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-kubectl-events() {
-  kubectl get events --all-namespaces --watch -o 'go-template={{.lastTimestamp}} {{.involvedObject.kind}} {{.message}} ({{.involvedObject.name}}){{"\n"}}'
-}
-
-iterm2_print_user_vars() {
-  iterm2_set_user_var kubecontext "$(kubectl config current-context)/$(kubectl config view --minify --output 'jsonpath={..namespace}')"
-}
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 gitpush() {
   git add .
@@ -52,3 +42,6 @@ gitpush() {
 # Aliases
 alias k='kubectl'
 alias gitpush="gitpush"
+
+# Check for dotfile updates
+source ~/dotfiles/bin/update.sh
