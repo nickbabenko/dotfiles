@@ -24,6 +24,10 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-tsserver'
+Plug 'neoclide/coc-json'
+Plug 'neoclide/coc-prettier'
+Plug 'neoclide/coc-eslint
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'scrooloose/nerdtree'
 Plug 'jiangmiao/auto-pairs'
