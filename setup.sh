@@ -13,7 +13,7 @@ if [[ $(command -v brew) == "" ]]; then
   echo "Installing homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 else
-  echo "Updating homebre"
+  echo "Updating homebrew"
   brew update
 fi
 
