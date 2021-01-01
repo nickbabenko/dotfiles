@@ -13,6 +13,7 @@ brew "ripgrep"
 # Source control tools
 brew "hub"
 brew "tig"
+brew "lazygit"
 
 # Languages
 brew "node"
