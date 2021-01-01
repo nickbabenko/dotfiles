@@ -18,7 +18,7 @@ let b:fileList = split(globpath('~/.vim/custom', '*.vim'), '\n')
 call plug#begin('~/.vim/plugged')
 " call ProcessList(b:pluginList, 'AddBundle')
 
-Plug 'Ppangloss/vim-javascript'
+Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
@@ -39,6 +39,7 @@ Plug 'gosukiwi/vim-atom-dark'
 Plug 'joshdick/onedark.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jremmen/vim-ripgrep'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -102,6 +103,14 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " Startify
 autocmd BufDelete * if empty(filter(tabpagebuflist(), '!buflisted(v:val)')) | Startify | endif
+
+" GitGutter
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{GitStatus()}
+command! Gqf GitGutterQuickFix | copen
 
 "function GitPush(arg)
 "   git add .

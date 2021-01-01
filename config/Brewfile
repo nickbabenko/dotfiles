@@ -4,6 +4,7 @@ brew "zsh"
 brew "zsh-syntax-highlighting"
 brew "tmux"
 cask "1password-cli"
+brew "kube-ps1"
 
 # Vim tools
 brew "vim"

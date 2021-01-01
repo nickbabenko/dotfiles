@@ -1,8 +1,5 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/nickbabenko/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh
 
 # Theme
 ZSH_THEME="robbyrussell"
@@ -20,11 +17,15 @@ plugins=(
   doctl
   zsh-autosuggestions
   helm
-  vscode
-  kubectl
 )
 
+# Init oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
 export EDITOR='vim'
+
+source "$(brew --prefix)/opt/kube-ps1/share/kube-ps1.sh"
+PROMPT='$(kube_ps1)'$PROMPT
 
 # Update path
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -33,15 +34,14 @@ export PATH="/usr/local/sbin:$PATH"
 
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
-gitpush() {
-  git add .
-  git commit -am "$1"
-  git push
-}
+# gitpush() {
+#  git add .
+#  git commit -am "$1"
+#  git push
+#}
 
 # Aliases
-alias k='kubectl'
-alias gitpush="gitpush"
+# alias gitpush="gitpush"
 
 # Check for dotfile updates
 source ~/dotfiles/bin/update.sh
