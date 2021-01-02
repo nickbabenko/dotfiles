@@ -73,12 +73,6 @@ function! s:show_hover_doc()
 endfunction
 
 " NerdTree
-autocmd VimEnter *
-            \   if !argc()
-            \ |   Startify
-            \ |   NERDTree
-            \ |   wincmd w
-            \ | endif
 
 map <C-f> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
