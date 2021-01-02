@@ -6,6 +6,10 @@ brew "tmux"
 cask "1password-cli"
 brew "kube-ps1"
 
+# ZSH
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+
 # Vim tools
 brew "vim"
 brew "ripgrep"

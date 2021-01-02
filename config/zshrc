@@ -11,11 +11,9 @@ plugins=(
   brew
   common-aliases 
   gitfast 
-  zsh-syntax-highlighting
   docker
   docker-compose
   doctl
-  zsh-autosuggestions
   helm
 )
 
@@ -24,6 +22,8 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='vim'
 
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source "$(brew --prefix)/opt/kube-ps1/share/kube-ps1.sh"
 PROMPT='$(kube_ps1)'$PROMPT
 
