@@ -31,5 +31,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jremmen/vim-ripgrep'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'cseelus/vim-colors-lucid'
+Plug 'dracula/vim'
+Plug 'roosta/srcery'
 
 call plug#end()
