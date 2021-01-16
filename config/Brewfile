@@ -13,7 +13,7 @@ tap "romkatv/powerlevel10k"
 brew "romkatv/powerlevel10k/powerlevel10k"
 
 # Vim tools
-brew "vim"
+brew "neovim"
 brew "ripgrep"
 
 # Source control tools

@@ -25,7 +25,7 @@ then
 fi
 
 # Cleanup files for install
-sudo rm -rf ~/.vimrc > /dev/null 2>&1
+sudo rm -rf ~/.config/nvim > /dev/null 2>&1
 sudo rm -rf ~/.vim/custom > /dev/null 2>&1
 sudo rm -rf ~/.zshrc > /dev/null 2>&1
 sudo rm -rf ~/Brewfile > /dev/null 2>&1
@@ -33,8 +33,7 @@ sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
 sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 
 # Add symlinks
-ln -sf ~/dotfiles/config/vimrc ~/.vimrc
-ln -sf ~/dotfiles/config/vim ~/.vim/custom
+ln -sf ~/dotfiles/config/nvim ~/.config/nvim
 ln -sf ~/dotfiles/config/zshrc ~/.zshrc
 ln -sf ~/dotfiles/config/Brewfile ~/Brewfile
 ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
@@ -55,7 +54,7 @@ curl -fLo '~/.vim/autoload/plug.vim' --create-dirs \
 # Setup git hooks
 cp hooks/* .git/hooks
 
-# Update vim plug
-vim +PlugUpdate +qall
+# Update nvim packages
+nvim +PlugUpdate +qall 
 
 echo "Done!"

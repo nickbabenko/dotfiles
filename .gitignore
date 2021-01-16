@@ -17,3 +17,6 @@ Code/User/workspaceStorage/*
 Code/User/globalStorage/*
 
 gitconfig.local
+
+config/nvim/pack
+config/nvim/plugged

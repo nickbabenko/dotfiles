@@ -27,7 +27,7 @@ plugins=(
 # Init oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
