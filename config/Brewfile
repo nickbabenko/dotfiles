@@ -9,6 +9,8 @@ brew "kube-ps1"
 # ZSH
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
+tap "romkatv/powerlevel10k"
+brew "romkatv/powerlevel10k/powerlevel10k"
 
 # Vim tools
 brew "vim"
