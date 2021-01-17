@@ -51,7 +51,7 @@ export PATH="/usr/local/sbin:$PATH"
 # Aliases
 # alias gitpush="gitpush"
 alias lg='lazygit'
-
+alias vim='nvim'
 # Check for dotfile updates
 source ~/dotfiles/bin/update.sh
 

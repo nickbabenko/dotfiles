@@ -1,5 +1,3 @@
-syntax on
-colorscheme onedark
 set nocompatible
 set number
 set autoindent
