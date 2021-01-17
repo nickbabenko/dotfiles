@@ -1,1 +1,1 @@
-colorscheme srcery
+" colorscheme srcery
