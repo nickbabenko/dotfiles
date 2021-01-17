@@ -5,6 +5,7 @@ brew "zsh-syntax-highlighting"
 brew "tmux"
 cask "1password-cli"
 brew "kube-ps1"
+cask "alacritty"
 
 # ZSH
 brew "zsh-autosuggestions"
