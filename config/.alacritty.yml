@@ -14,7 +14,7 @@ font:
     y: 0
   use_thin_strokes: true
 shell:
-  program: /bin/bash
+  program: /bin/zsh
   args:
     - -l
     - -c
