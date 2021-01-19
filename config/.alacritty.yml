@@ -13,6 +13,12 @@ font:
     x: 1
     y: 0
   use_thin_strokes: true
+shell:
+  program: /bin/bash
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
 colors:
   primary:
     background: '0x000000'
@@ -35,4 +41,29 @@ colors:
     magenta: '0xAD7FA8' 
     cyan:    '0x34E2E2'
     white:   '0xEEEEEC'
+key_bindings:
+  - { key: D,        mods: Command,       chars: "\x02\x25" } 
+  - { key: D,        mods: Command|Shift, chars: "\x02\x22" }
+  - { key: W,        mods: Command,       chars: "\x02\x78" }
+  - { key: H,        mods: Command,       chars: "\x02\x48" }
+  - { key: J,        mods: Command,       chars: "\x02\x4a" }
+  - { key: K,        mods: Command,       chars: "\x02\x4b" }
+  - { key: L,        mods: Command,       chars: "\x02\x4c" }
+  - { key: T,        mods: Command,       chars: "\x02\x63" }
+  - { key: RBracket, mods: Command|Shift, chars: "\x02\x6e" }
+  - { key: LBracket, mods: Command|Shift, chars: "\x02\x70" }
+  - { key: Return,   mods: Command|Shift, chars: "\x02\x7a" }
+  - { key: Key1,     mods: Command,       chars: "\x02\x31" }
+  - { key: Key2,     mods: Command,       chars: "\x02\x32" }
+  - { key: Key3,     mods: Command,       chars: "\x02\x33" }
+  - { key: Key4,     mods: Command,       chars: "\x02\x34" }
+  - { key: Key5,     mods: Command,       chars: "\x02\x35" }
+  - { key: Key6,     mods: Command,       chars: "\x02\x36" }
+  - { key: Key7,     mods: Command,       chars: "\x02\x37" }
+  - { key: Key8,     mods: Command,       chars: "\x02\x38" }
+  - { key: Key9,     mods: Command,       chars: "\x02\x39" }
+  - { key: Left,     mods: Command,       chars: "\x02\x48" }
+  - { key: Down,     mods: Command,       chars: "\x02\x4a" }
+  - { key: Up,       mods: Command,       chars: "\x02\x4b" }
+  - { key: Right,    mods: Command,       chars: "\x02\x4c" }
 
