@@ -5,4 +5,4 @@ runtime! partials/coc.vim
 runtime! partials/ctrlp.vim
 runtime! partials/gitgutter.vim
 runtime! partials/startify.vim
-runtime! partials/nerdtree.vim
+runtime! partials/chadtree.vim

@@ -6,7 +6,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
     
 call plug#begin()
-" here you'll add all the plugins needed
 
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
@@ -19,7 +18,7 @@ Plug 'neoclide/coc-json'
 Plug 'neoclide/coc-prettier'
 Plug 'neoclide/coc-eslint'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'scrooloose/nerdtree'
+Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
