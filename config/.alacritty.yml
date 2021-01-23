@@ -66,4 +66,5 @@ key_bindings:
   - { key: Down,     mods: Command,       chars: "\x02\x4a" }
   - { key: Up,       mods: Command,       chars: "\x02\x4b" }
   - { key: Right,    mods: Command,       chars: "\x02\x4c" }
-
+  - { key: Key3,     mods: Alt,           chars: "\x23"     }
+  - { key: Return,   mods: Command,       action: ToggleFullscreen }
