@@ -33,5 +33,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'cseelus/vim-colors-lucid'
 Plug 'dracula/vim'
 Plug 'roosta/srcery'
+Plug 'luochen1990/rainbow'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim' 
 
 call plug#end()
