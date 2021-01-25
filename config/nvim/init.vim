@@ -6,3 +6,4 @@ runtime! partials/ctrlp.vim
 runtime! partials/gitgutter.vim
 runtime! partials/startify.vim
 runtime! partials/chadtree.vim
+runtime! partials/fzf.vim

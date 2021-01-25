@@ -9,3 +9,5 @@ set mouse=a
 set splitbelow
 set splitright
 set shiftwidth=2
+
+let g:rainbow_active = 1
