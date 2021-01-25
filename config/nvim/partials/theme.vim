@@ -6,3 +6,4 @@ let g:onedark_color_overrides = {
 highlight Normal ctermbg=Black
 syntax on
 colorscheme onedark
+set termguicolors
