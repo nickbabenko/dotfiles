@@ -17,6 +17,7 @@ Plug 'neoclide/coc-tsserver'
 Plug 'neoclide/coc-json'
 Plug 'neoclide/coc-prettier'
 Plug 'neoclide/coc-eslint'
+Plug 'marlonfan/coc-phpls'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'jiangmiao/auto-pairs'
