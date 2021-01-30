@@ -1,3 +1,6 @@
+let mapleader = ";"
+
+runtime! partials/keymaps.vim
 runtime! partials/plugins.vim
 runtime! partials/settings.vim
 runtime! partials/theme.vim
