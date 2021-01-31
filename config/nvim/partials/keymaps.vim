@@ -3,6 +3,7 @@ map <C-s> :w<CR>
 imap <-s> <C-o>:w<CR>
 nnoremap <Leader>s :w<CR>
 
+" Save and close;s
 nnoremap <Leader>x :x<CR>
 
 " fugitive git bindings
