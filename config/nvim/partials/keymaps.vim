@@ -3,6 +3,8 @@ map <C-s> :w<CR>
 imap <-s> <C-o>:w<CR>
 nnoremap <Leader>s :w<CR>
 
+nnoremap <Leader>x :x<CR>
+
 " fugitive git bindings
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gd :Gdiff<CR>
