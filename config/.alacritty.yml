@@ -70,3 +70,4 @@ key_bindings:
   - { key: Return,   mods: Command,       action: ToggleFullscreen }
   - { key: S,        mods: Command,       chars: "\x3b\x73" }
   - { key: X,        mods: Command,       chars: "\x3b\x78" }
+  - { key: Q,        mods: Command,       chars: "\x3b\x71" }

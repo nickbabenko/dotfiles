@@ -6,6 +6,9 @@ nnoremap <Leader>s :w<CR>
 " Save and close;s
 nnoremap <Leader>x :x<CR>
 
+" Quit
+nnoremap <Leader>q :q<CR>
+
 " fugitive git bindings
 nnoremap <Leader>gl :Glog<CR>
 nnoremap <Leader>gd :Gdiff<CR>
