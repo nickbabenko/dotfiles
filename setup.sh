@@ -31,7 +31,7 @@ sudo rm -rf ~/.zshrc > /dev/null 2>&1
 sudo rm -rf ~/Brewfile > /dev/null 2>&1
 sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
 sudo rm -rf ~/.gitconfig > /dev/null 2>&1
-sudo rm -rg ~/.alacritty.yml > /dev/null 2>&1
+sudo rm -rf ~/.alacritty.yml > /dev/null 2>&1
 
 # Add symlinks
 ln -sf ~/dotfiles/config/nvim ~/.config/nvim
