@@ -39,7 +39,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'branch': 'release/0.x'
+  \ 'branch': 'release/1.x'
   \ }
 
 call plug#end()
