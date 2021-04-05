@@ -8,9 +8,6 @@
 
 [interactive]
     diffFilter = delta --color-only
-[user]
-	email = nick.babenko@thehutgroup.com
-	name = Nick Babenko
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
