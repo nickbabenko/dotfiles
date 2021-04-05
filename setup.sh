@@ -30,7 +30,6 @@ sudo rm -rf ~/.vim/custom > /dev/null 2>&1
 sudo rm -rf ~/.zshrc > /dev/null 2>&1
 sudo rm -rf ~/Brewfile > /dev/null 2>&1
 sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
-sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 sudo rm -rf ~/.alacritty.yml > /dev/null 2>&1
 
 # Add symlinks
@@ -40,7 +39,6 @@ ln -sf ~/dotfiles/config/nvim/lua ~/.config/nvim/lua
 ln -sf ~/dotfiles/config/zshrc ~/.zshrc
 ln -sf ~/dotfiles/config/Brewfile ~/Brewfile
 ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/config/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/config/.alacritty.yml ~/.alacritty.yml
 
 # Install brewfiles
