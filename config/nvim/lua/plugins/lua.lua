@@ -21,5 +21,6 @@ return require("packer").startup(
     use "onsails/lspkind-nvim"
     use "hrsh7th/nvim-compe"
     use "karb94/neoscroll.nvim"
+    use { "prettier/vim-prettier", run = 'npm install' }
   end
 )
