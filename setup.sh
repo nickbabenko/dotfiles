@@ -34,9 +34,7 @@ sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 sudo rm -rf ~/.alacritty.yml > /dev/null 2>&1
 
 # Add symlinks
-mkdir ~/.config/nvim
-ln -sf ~/dotfiles/config/nvim/init.lua ~/.config/nvim/init.lua
-ln -sf ~/dotfiles/config/nvim/lua ~/.config/nvim/lua
+ln -sf ~/dotfiles/config/nvim-lua ~/.config/nvim
 ln -sf ~/dotfiles/config/zshrc ~/.zshrc
 ln -sf ~/dotfiles/config/Brewfile ~/Brewfile
 ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
@@ -54,12 +52,20 @@ npm install -g typescript typescript-language-server prettier \
 # Setup
 source ~/.zshrc
 
-if [[ ! -e ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]]; then
-  git clone https://github.com/wbthomason/packer.nvim\
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
+git clone https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
+# Tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Vim plug
+curl -fLo '~/.vim/autoload/plug.vim' --create-dirs \
+    'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Setup git hooks
 cp hooks/* .git/hooks
+
+# Update nvim packages
+#nvim +PackerUpdate +qall 
 
 echo "Done!"
