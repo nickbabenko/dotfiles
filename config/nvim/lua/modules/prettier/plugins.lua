@@ -1,8 +1,10 @@
 local prettier = {}
+local conf = require('modules/prettier/config')
 
 prettier['prettier/vim-prettier'] = {
-  branch = 'release/1.x',
+  branch = 'master',
   run = 'npm install',
+  config = conf.prettier,
 }
 
 return prettier

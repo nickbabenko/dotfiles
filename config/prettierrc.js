@@ -1,3 +1,3 @@
 module.exports = {
-	plugins: ['~/.config/prettier-plugin-php'],
-}
+  // plugins: ['@prettier/plugin-php', '@prettier/plugin-lua'],
+};
