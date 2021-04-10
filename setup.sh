@@ -34,7 +34,7 @@ sudo rm -rf ~/.gitconfig > /dev/null 2>&1
 sudo rm -rf ~/.alacritty.yml > /dev/null 2>&1
 
 # Add symlinks
-ln -sf ~/dotfiles/config/nvim ~/.config/nvim
+ln -sf ~/dotfiles/config/nvim-lua ~/.config/nvim
 ln -sf ~/dotfiles/config/zshrc ~/.zshrc
 ln -sf ~/dotfiles/config/Brewfile ~/Brewfile
 ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
@@ -49,6 +49,9 @@ cd -
 # Setup
 source ~/.zshrc
 
+git clone https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 # Tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -60,6 +63,6 @@ curl -fLo '~/.vim/autoload/plug.vim' --create-dirs \
 cp hooks/* .git/hooks
 
 # Update nvim packages
-nvim +PlugUpdate +qall 
+#nvim +PackerUpdate +qall 
 
 echo "Done!"
