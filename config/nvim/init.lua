@@ -8,6 +8,7 @@ require("mappings.lua")
 require("statusline.lua")
 require("treesitter.lua")
 require("lspconfig.lua")
+require("prettier.lua")
 
 local cmd = vim.cmd
 local g = vim.g
