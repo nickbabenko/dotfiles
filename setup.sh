@@ -33,7 +33,7 @@ sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
 sudo rm -rf ~/.alacritty.yml > /dev/null 2>&1
 
 # Add symlinks
-ln -sf ~/dotfiles/config/nvim-lua ~/.config/nvim
+ln -sf ~/dotfiles/config/nvim ~/.config/nvim
 ln -sf ~/dotfiles/config/zshrc ~/.zshrc
 ln -sf ~/dotfiles/config/Brewfile ~/Brewfile
 ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
