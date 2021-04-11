@@ -49,7 +49,8 @@ cd -
 echo "Installing NPM dependencies"
 npm install -g typescript typescript-language-server prettier \
   vscode-html-languageserver-bin vscode-css-languageserver-bin \
-  @prettier/plugin-lua @prettier/plugin-php
+  @prettier/plugin-lua @prettier/plugin-php bash-language-server \
+  intelephense
 
 # Setup
 source ~/.zshrc

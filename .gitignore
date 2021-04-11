@@ -20,3 +20,5 @@ gitconfig.local
 
 config/nvim/pack
 config/nvim/plugged
+
+.php_cs.cache

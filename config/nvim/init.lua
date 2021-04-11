@@ -65,4 +65,6 @@ local core_init = function ()
   require('lib.plugins').ensure_plugins()
 end
 
+require('config')
 core_init()
+require('autocmds')

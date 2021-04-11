@@ -26,4 +26,8 @@ brew "git-delta"
 
 # Languages
 brew "node"
+brew "composer"
+
+# PHP
+brew "php-cs-fixer"
 
