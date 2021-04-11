@@ -31,5 +31,3 @@ brew "composer"
 # PHP
 brew "php-cs-fixer"
 
-# Node
-brew "prettier"
