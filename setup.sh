@@ -26,7 +26,6 @@ fi
 
 # Cleanup files for install
 sudo rm -rf ~/.config/nvim > /dev/null 2>&1
-sudo rm -rf ~/.vim/custom > /dev/null 2>&1
 sudo rm -rf ~/.zshrc > /dev/null 2>&1
 sudo rm -rf ~/Brewfile > /dev/null 2>&1
 sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
