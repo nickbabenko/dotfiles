@@ -25,9 +25,11 @@ brew "lazygit"
 brew "git-delta"
 
 # Languages
-brew "node"
+brew "node@12"
 brew "composer"
 
 # PHP
 brew "php-cs-fixer"
 
+# Node
+brew "prettier"
