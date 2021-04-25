@@ -4,12 +4,12 @@ config.lspconfig = function()
   local nvim_lsp = require('lspconfig')
 
   local servers = {
-    bash = 'bashls',
+    -- bash = 'bashls',
     css = 'cssls',
     json = 'jsonls',
     html = 'html',
     ts = 'tsserver',
-    php = 'intelephense',
+    -- php = 'intelephense',
   }
 
   for config_key, server_ref in pairs(servers) do
@@ -51,13 +51,19 @@ config.compe = function()
       calc = true,
       vsnip = true,
       nvim_lsp = true,
-      nvim_lua = {kind = "  "},
+      nvim_lua = true,
       spell = true,
       tags = false,
       -- treesitter = true,
       emoji = {kind = " ﲃ "}
     }
   }
+end
+
+config.trouble = function()
+  vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>LspTroubleToggle<cr>",
+    {silent = true, noremap = true}
+  )
 end
 
 return config

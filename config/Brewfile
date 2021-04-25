@@ -15,8 +15,7 @@ brew "romkatv/powerlevel10k/powerlevel10k"
 
 # Vim tools
 brew "ripgrep"
-tap "jason0x43/homebrew-neovim-nightly"
-cask "neovim-nightly"
+brew "neovim", args: ['HEAD']
 
 # Source control tools
 brew "hub"

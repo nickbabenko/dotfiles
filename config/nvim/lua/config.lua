@@ -3,12 +3,12 @@ Theming = {
 }
 
 LSP = {
-  bash = true,
+  bash = false,
   css = true,
   json = true,
   lua = false,
   ts = true,
-  php = true,
+  php = false,
 }
 
 Completion = {
@@ -25,8 +25,6 @@ Treesitter = {
     'html',
     'css',
     'lua',
-    'bash',
-    'python',
     'json',
     'yaml',
   },
