@@ -15,7 +15,7 @@ brew "romkatv/powerlevel10k/powerlevel10k"
 
 # Vim tools
 brew "ripgrep"
-brew "neovim", args: ['HEAD']
+brew "neovim"
 
 # Source control tools
 brew "hub"
