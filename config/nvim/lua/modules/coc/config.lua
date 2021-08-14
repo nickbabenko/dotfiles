@@ -36,11 +36,18 @@ config.coc = function()
   vim.api.nvim_set_keymap(
     'n',
     'K',
-    ':call CocAction(\'doHover\')<CR>',
+    ':call CocActionAsync(\'doHover\')<CR>',
     {
       silent = true,
       noremap = true
     }
+  )
+
+  vim.api.nvim_set_keymap(
+    'n',
+    '<leader>rn',
+    '<Plug>(coc-rename)',
+    {}
   ) 
 end
 
