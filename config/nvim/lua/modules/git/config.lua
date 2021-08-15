@@ -47,6 +47,24 @@ config.fugitive = function()
   )
   vim.api.nvim_set_keymap(
     'n',
+    'gdl',
+    ':diffget //2<CR>',
+    {
+      noremap = true,
+    }
+  )
+
+  vim.api.nvim_set_keymap(
+    'n',
+    'gdr',
+    ':diffget //3<CR>',
+    {
+      noremap = true,
+    }
+  )
+
+  vim.api.nvim_set_keymap(
+    'n',
     '<Leader>ge',
     ':Gedit<CR>',
     {
@@ -113,7 +131,7 @@ config.fugitive = function()
   vim.api.nvim_set_keymap(
     'n',
     '<Leader>gps',
-    ':Dispatch! git push<CR>',
+    ':! git push<CR>',
     {
       noremap = true,
     }
@@ -121,7 +139,7 @@ config.fugitive = function()
   vim.api.nvim_set_keymap(
     'n',
     '<Leader>gpsv',
-    ':Dispatch! git push --no-verify<CR>',
+    ':! git push --no-verify<CR>',
     {
       noremap = true,
     }
@@ -129,7 +147,7 @@ config.fugitive = function()
   vim.api.nvim_set_keymap(
     'n',
     '<Leader>gpl',
-    ':Dispatch! git pull<CR>',
+    ':! git pull<CR>',
     {
       noremap = true,
     }
