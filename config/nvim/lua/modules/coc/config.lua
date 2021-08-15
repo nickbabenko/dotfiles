@@ -42,7 +42,6 @@ config.coc = function()
       noremap = true
     }
   )
-
   vim.api.nvim_set_keymap(
     'n',
     '<leader>rn',
