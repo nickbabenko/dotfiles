@@ -1,53 +1,47 @@
 local config = {}
 
-config.coc = function()
+config.test = function()
   vim.api.nvim_set_keymap(
     'n',
-    'gd',
-    '<Plug>(coc-definition)',
+    't<C-n>',
+    ':TestNearest<CR>',
     {
       silent = true,
     }
   )
   vim.api.nvim_set_keymap(
     'n',
-    'gy',
-    '<Plug>(coc-type-definition)',
+    't<C-f>',
+    ':TestFile<CR>',
     {
       silent = true,
     }
   )
   vim.api.nvim_set_keymap(
     'n',
-    'gi',
-    '<Plug>(coc-implementation)',
+    't<C-s>',
+    ':TestSuite<CR>',
     {
       silent = true,
     }
   )
   vim.api.nvim_set_keymap(
     'n',
-    'gr',
-    '<Plug>(coc-references)',
+    't<C-l>',
+    ':TestLast<CR>',
     {
       silent = true,
     }
   )
   vim.api.nvim_set_keymap(
     'n',
-    'K',
-    ':call CocActionAsync(\'doHover\')<CR>',
+    't<C-v>',
+    ':TestVisit<CR>',
     {
       silent = true,
-      noremap = true
     }
   )
-  vim.api.nvim_set_keymap(
-    'n',
-    '<leader>rn',
-    '<Plug>(coc-rename)',
-    {}
-  ) 
+  vim.g['test#strategy'] = 'neovim'
 end
 
 return config

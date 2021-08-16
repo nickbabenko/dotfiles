@@ -8,6 +8,8 @@ git['lewis6991/gitsigns.nvim'] = {
   },
 }
 
-git['tpope/vim-fugitive'] = {}
+git['tpope/vim-fugitive'] = {
+  config = cfg.fugitive,
+}
 
 return git

@@ -1,9 +1,9 @@
 local theme = {}
 local cfg = require('modules/theme/config')
 
-theme['joshdick/onedark.vim'] = {
-  config = cfg.onedark,
-}
+-- theme['joshdick/onedark.vim'] = {
+--   config = cfg.onedark,
+-- }
 
 theme['tjdevries/colorbuddy.nvim'] = {
   config = cfg.colorbuddy,

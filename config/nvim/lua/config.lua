@@ -1,5 +1,4 @@
 Theming = {
-  colorscheme = 'onedark',
 }
 
 LSP = {

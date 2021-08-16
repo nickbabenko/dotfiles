@@ -52,8 +52,7 @@ function config.nvim_tree()
   )
 
   local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-  -- default mappings
-  vim.g.nvim_tree_bindings = {
+  g.nvim_tree_bindings = {
       { key = {"<CR>", "o", "<2-LeftMouse>"}, cb = tree_cb("edit") },
       { key = {"<2-RightMouse>", "<C-]>"},    cb = tree_cb("cd") },
       { key = "<C-v>",                        cb = tree_cb("vsplit") },
@@ -83,9 +82,10 @@ function config.nvim_tree()
       { key = "[c",                           cb = tree_cb("prev_git_item") },
       { key = "]c",                           cb = tree_cb("next_git_item") },
       { key = "-",                            cb = tree_cb("dir_up") },
+      { key = "s",                            cb = tree_cb("system_open") },
       { key = "q",                            cb = tree_cb("close") },
-      { key = "g?",                           cb = tree_cb("toggle_help") },
-  } 
+      { key = "g?",                           cb = tree_cb("toggle_help") }, 
+  }
 end
 
 return config
