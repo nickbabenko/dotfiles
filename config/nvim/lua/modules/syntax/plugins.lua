@@ -7,5 +7,6 @@ syntax['styled-components/vim-styled-components'] = {
   branch = 'main',
 }
 syntax['jparise/vim-graphql'] = {}
+syntax['fgsch/vim-varnish'] = {}
 
 return syntax

@@ -62,6 +62,10 @@ local core_init = function ()
   leader_map()
   basic_map()
 
+  vim.g.foldmethod = 'indent'   
+  vim.g.foldnestmax = 10
+  vim.g.foldlevel = 2
+
   require('lib.plugins').ensure_plugins()
 end
 
