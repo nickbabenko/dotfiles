@@ -42,6 +42,8 @@ export PATH="/usr/local/sbin:$PATH"
 
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
+alias kbb="kubectl run -i --tty busybox --image=busybox --restart=Never -- sh"
+
 # gitpush() {
 #  git add .
 #  git commit -am "$1"
