@@ -54,6 +54,10 @@ local basic_map = function ()
   vim.api.nvim_set_keymap('', '<Leader>x', '<Esc>:x<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('i', '<Leader>q', '<Esc>:q<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap('', '<Leader>q', '<Esc>:q<CR>', { noremap = true, silent = true })
+
+  vim.api.nvim_set_keymap('', '<Leader>ac', ':%w !pbcopy<CR><CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('', '<Leader>c', ':w !pbcopy<CR><CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('', '<Leader>v', ':r !pbpaste<CR><CR>', { noremap = true, silent = true })
 end
 
 local core_init = function ()
