@@ -8,6 +8,14 @@ LSP = {
   lua = false,
   ts = true,
   php = false,
+  terraform = true,
+  c = true,
+  eslint = true,
+  docker = true,
+  graphql = true,
+  json = true,
+  java = true,
+  lua = true,
 }
 
 Completion = {

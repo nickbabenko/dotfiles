@@ -2,19 +2,29 @@ local config = {}
 
 config.lspconfig = function()
   local nvim_lsp = require('lspconfig')
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
   local servers = {
-    -- bash = 'bashls',
+    bash = 'bashls',
     css = 'cssls',
     json = 'jsonls',
     html = 'html',
     ts = 'tsserver',
-    -- php = 'intelephense',
+    terraform = 'terraformls',
+    php = 'intelephense',
+    c = 'clangd',
+    eslint = 'eslint',
+    docker = 'dockerls',
+    graphql = 'graphql',
+    json = 'jsonls',
+    java = 'java_language_server',
+    lua = 'sumneko_lua',
   }
 
   for config_key, server_ref in pairs(servers) do
     nvim_lsp[server_ref].setup {
-     autostart = LSP[config_key],
+      autostart = LSP[config_key],
+      capabilities = capabilities,
     }
   end
 
@@ -33,31 +43,36 @@ config.lspconfig = function()
 end
 
 config.compe = function()
-  require('compe').setup {
-    enabled = true,
-    autocomplete = true,
-    debug = false,
-    min_length = 1,
-    preselect = 'enable',
-    throttle_time = 80,
-    source_timeout = 200,
-    incomplete_delay = 400,
-    max_abbr_width = 100,
-    max_kind_width = 100,
-    max_menu_width = 100,
-    documentation = true,
-    source = {
-      path = true,
-      buffer = true,
-      calc = true,
-      vsnip = true,
-      nvim_lsp = true,
-      nvim_lua = true,
-      spell = true,
-      tags = false,
-      -- treesitter = true,
-      emoji = {kind = " ﲃ "}
-    }
+  require('cmp').setup {
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+        -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
+      end,
+    },
+    mapping = {
+      ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+      ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+      ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-y>'] = cmp.config.disable, -- If you want to remove the default `<C-y>` mapping, You can specify `cmp.config.disable` value.
+      ['<C-e>'] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      -- { name = 'vsnip' }, -- For vsnip users.
+      -- { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
   }
 end
 
