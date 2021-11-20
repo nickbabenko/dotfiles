@@ -11,14 +11,14 @@ config.lspconfig = function()
     html = 'html',
     ts = 'tsserver',
     terraform = 'terraformls',
-    php = 'intelephense',
-    c = 'clangd',
-    eslint = 'eslint',
+    -- php = 'intelephense',
+    -- c = 'clangd',
+    -- eslint = 'eslint',
     docker = 'dockerls',
     graphql = 'graphql',
     json = 'jsonls',
-    java = 'java_language_server',
-    lua = 'sumneko_lua',
+    -- java = 'java_language_server',
+    -- lua = 'sumneko_lua',
   }
 
   for config_key, server_ref in pairs(servers) do
@@ -40,6 +40,51 @@ config.lspconfig = function()
   vim.api.nvim_set_keymap('n', '<Leader>e', ':lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', { noremap = true })
   --vim.api.nvim_set_keymap("n", "<c-p>", ":lua vim.lsp.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
   --vim.api.nvim_set_keymap("n", "<c-n>", ":lua vim.lsp.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
+  --
+
+  nvim_lsp.diagnosticls.setup {
+    filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact", "css"},
+    init_options = {
+      filetypes = {
+        javascript = "eslint",
+        typescript = "eslint",
+        javascriptreact = "eslint",
+        typescriptreact = "eslint"
+      },
+      linters = {
+        eslint = {
+          sourceName = "eslint",
+          command = "./node_modules/.bin/eslint",
+          rootPatterns = {
+            ".eslintrc.js",
+            "package.json"
+          },
+          debounce = 100,
+          args = {
+            "--cache",
+            "--stdin",
+            "--stdin-filename",
+            "%filepath",
+            "--format",
+            "json"
+          },
+          parseJson = {
+            errorsRoot = "[0].messages",
+            line = "line",
+            column = "column",
+            endLine = "endLine",
+            endColumn = "endColumn",
+            message = "${message} [${ruleId}]",
+            security = "severity"
+          },
+          securities = {
+            [2] = "error",
+            [1] = "warning"
+          }
+        }
+      }
+    }
+  }
 end
 
 config.compe = function()

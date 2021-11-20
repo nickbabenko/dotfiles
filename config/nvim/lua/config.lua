@@ -5,17 +5,17 @@ LSP = {
   bash = false,
   css = true,
   json = true,
-  lua = false,
+  -- lua = false,
   ts = true,
-  php = false,
+  -- php = false,
   terraform = true,
-  c = true,
-  eslint = true,
+  -- c = true,
+  -- eslint = false,
   docker = true,
   graphql = true,
   json = true,
-  java = true,
-  lua = true,
+  -- java = true,
+  -- lua = true,
 }
 
 Completion = {
