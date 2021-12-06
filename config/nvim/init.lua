@@ -69,6 +69,7 @@ local core_init = function ()
   vim.g.foldmethod = 'indent'   
   vim.g.foldnestmax = 10
   vim.g.foldlevel = 2
+  vim.wo.relativenumber = true
 
   require('lib.plugins').ensure_plugins()
 end

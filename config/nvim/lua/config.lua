@@ -14,7 +14,7 @@ LSP = {
   docker = true,
   graphql = true,
   json = true,
-  -- java = true,
+  java = true,
   -- lua = true,
 }
 

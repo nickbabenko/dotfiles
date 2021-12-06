@@ -28,6 +28,10 @@ config.lspconfig = function()
     }
   end
 
+  nvim_lsp.java_language_server.setup {
+    cmd = {'/Users/nick/Developer/java-language-server/dist/lang_server_mac.sh'}
+  }
+
   vim.api.nvim_set_keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "gd", ":lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "K", ":lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
@@ -88,12 +92,13 @@ config.lspconfig = function()
 end
 
 config.compe = function()
-  require('cmp').setup {
+  local cmp = require'cmp'
+  cmp.setup {
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
         -- vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
         -- require'snippy'.expand_snippet(args.body) -- For `snippy` users.
       end,
@@ -111,7 +116,7 @@ config.compe = function()
     },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
-      -- { name = 'vsnip' }, -- For vsnip users.
+      { name = 'vsnip' }, -- For vsnip users.
       -- { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
@@ -122,9 +127,9 @@ config.compe = function()
 end
 
 config.trouble = function()
-  vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>LspTroubleToggle<cr>",
-    {silent = true, noremap = true}
-  )
+  -- vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>LspTroubleToggle<cr>",
+  --   {silent = true, noremap = true}
+  -- )
 end
 
 return config
