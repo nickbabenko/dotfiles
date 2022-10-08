@@ -1,5 +1,13 @@
 local config = {}
 
+local function shallowCopy(original)
+	local copy = {}
+	for key, value in pairs(original) do
+		copy[key] = value
+	end
+	return copy
+end
+
 config.lspconfig = function()
   local nvim_lsp = require('lspconfig')
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -9,27 +17,41 @@ config.lspconfig = function()
     css = 'cssls',
     json = 'jsonls',
     html = 'html',
-    ts = 'tsserver',
+    -- ts = 'tsserver',
     terraform = 'terraformls',
     -- php = 'intelephense',
     -- c = 'clangd',
     -- eslint = 'eslint',
     docker = 'dockerls',
     graphql = 'graphql',
-    json = 'jsonls',
     -- java = 'java_language_server',
-    -- lua = 'sumneko_lua',
+    lua = 'sumneko_lua',
+    go = 'gopls',
   }
 
+  -- capabilities.textDocument.foldingRange = {
+  --   dynamicRegistration = false,
+  --   lineFoldingOnly = true
+  -- }
+
   for config_key, server_ref in pairs(servers) do
-    nvim_lsp[server_ref].setup {
+    nvim_lsp[server_ref].setup({
       autostart = LSP[config_key],
-      capabilities = capabilities,
-    }
+      capabilities = capabilities
+    })
   end
 
+  nvim_lsp.tsserver.setup {
+    tsserver = {
+      root_dir = require('lspconfig.util').root_pattern('.git'),
+    },
+    autostart = true,
+    capabilities = capabilities
+  }
+
   nvim_lsp.java_language_server.setup {
-    cmd = {'/Users/nick/Developer/java-language-server/dist/lang_server_mac.sh'}
+    cmd = {'/Users/nick/Developer/java-language-server/dist/lang_server_mac.sh'},
+    capabilities = capabilities
   }
 
   vim.api.nvim_set_keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })

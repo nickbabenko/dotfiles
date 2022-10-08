@@ -5,12 +5,16 @@ local cfg = require('modules/theme/config')
 --   config = cfg.onedark,
 -- }
 
-theme['tjdevries/colorbuddy.nvim'] = {
-  config = cfg.colorbuddy,
-}
-
+-- theme['tjdevries/colorbuddy.nvim'] = {
+--   config = cfg.colorbuddy,
+-- }
+--
 theme['marko-cerovac/material.nvim'] = {
   config = cfg.material,
 }
+
+-- theme['rmehri01/onenord.nvim'] = {
+--   config = cfg.onenord,
+-- }
 
 return theme

@@ -22,3 +22,6 @@ config/nvim/pack
 config/nvim/plugged
 
 .php_cs.cache
+
+config/hammerspoon/Spoons
+

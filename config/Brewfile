@@ -6,6 +6,7 @@ brew "tmux"
 cask "1password-cli"
 brew "kube-ps1"
 cask "alacritty"
+cask "hammerspoon"
 
 # ZSH
 brew "zsh-autosuggestions"
@@ -16,6 +17,7 @@ brew "romkatv/powerlevel10k/powerlevel10k"
 # Vim tools
 brew "ripgrep"
 brew "neovim"
+brew "ninja"
 
 # Source control tools
 brew "hub"

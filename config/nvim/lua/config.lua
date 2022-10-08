@@ -15,7 +15,8 @@ LSP = {
   graphql = true,
   json = true,
   java = true,
-  -- lua = true,
+  lua = true,
+  go = true,
 }
 
 Completion = {

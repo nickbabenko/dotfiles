@@ -39,6 +39,7 @@ PROMPT='$(kube_ps1)'$PROMPT
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 [ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
 
@@ -74,3 +75,15 @@ if [ -f '/Users/nick/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/nick
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+export PATH="${PATH}:${HOME}/.krew/bin"
+
+alias luamake=/Users/nick/lua-language-server/3rd/luamake/luamake
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export TERM=screen-256color
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$PATH"
