@@ -33,12 +33,12 @@ sudo rm -rf ~/.alacritty.yml > /dev/null 2>&1
 sudo rm -rf ~/.hammerspoon > /dev/null 2>&1
 
 # Add symlinks
-ln -sf ~/dotfiles/config/nvim ~/.config/nvim
 ln -sf ~/dotfiles/config/zshrc ~/.zshrc
 ln -sf ~/dotfiles/config/Brewfile ~/Brewfile
 ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/config/.alacritty.yml ~/.alacritty.yml
 ln -sf ~/dotfiles/config/hammerspoon ~/.hammerspoon
+ln -sf ~/dotfiles/config/astronvim .config/nvim/lua/user
 
 # Install brewfiles
 cd ~
@@ -54,15 +54,13 @@ npm install -g typescript typescript-language-server prettier \
 # Setup
 source ~/.zshrc
 
-git clone https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+# AstroNvim
+git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+nvim +PackerSync
 
 # Tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# Vim plug
-curl -fLo '~/.vim/autoload/plug.vim' --create-dirs \
-    'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Setup git hooks
 cp hooks/* .git/hooks
