@@ -1,27 +1,15 @@
 env:
   TERM: xterm-256color
 font:
-  normal:
-    family: "MesloLGS NF"
-    style: Regular
-  bold:
-    style: Bold
-  italic:
-    style: Italic
-  size: 13.0
+  size: 10.0
   offset:
     x: 1
     y: 0
-  use_thin_strokes: true
 shell:
   program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux attach || tmux"
 colors:
   primary:
-    background: '0x000000'
+    background: '0x17181C'
     foreground: '0xffffff'
   normal:
     black:   '0x2E3436'

@@ -151,49 +151,104 @@ screen.connect_signal("property::geometry", set_wallpaper)
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
-
-    -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    
+    tag_config = {
+      icon = gears.filesystem.get_configuration_dir() .. "icons/circle-regular.svg", 
+      layout             = awful.layout.suit.tile,
+      master_fill_policy = "master_width_factor",
+      gap_single_client  = true,
+      screen = s,
+    }
+    awful.tag.add("9", tag_config)
+    awful.tag.add("8", tag_config)
+    awful.tag.add("7", tag_config)
+    awful.tag.add("6", tag_config)
+    awful.tag.add("5", tag_config)
+    awful.tag.add("4", tag_config)
+    awful.tag.add("3", tag_config)
+    awful.tag.add("2", tag_config)
+    awful.tag.add("1", tag_config)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
 
+    local update_tag_icon = function(widget, tag, index, taglist)
+      local w = widget:get_children_by_id('icon_role')[1]
+      local icon_name = "circle-"
+
+      if tag.selected then
+          icon_name = icon_name .. "solid"
+      elseif tag.urgent then
+          icon_name = icon_name .. "solid"
+      else
+          icon_name = icon_name .. "regular"
+      end
+
+    --if #tag:clients() > 0 then
+        --icon_name = icon_name .. "occupied"
+    --else
+        --icon_name = icon_name .. "empty"
+    --end 
+        w.image = gears.filesystem.get_configuration_dir() .. "icons/" .. icon_name .. ".svg" 
+    end
+
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist {
-        screen  = s,
-        filter  = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons
+      screen  = s,
+      filter  = awful.widget.taglist.filter.all,
+      buttons = taglist_buttons,
+      widget_template = {
+        {
+          { 
+            id     = 'icon_role',
+            widget = wibox.widget.imagebox,
+            image = gears.filesystem.get_configuration_dir() .. "icons/circle-regular.svg", 
+          },
+          margins = 12,
+          widget = wibox.container.margin
+        },
+        id     = 'background_role',
+        bg = "#ff0000",
+        widget = wibox.container.background,
+        create_callback = update_tag_icon,
+        update_callback = update_tag_icon,
+      },
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(40) })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(50), bg = "#00000000" })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
-	{
-            layout = wibox.layout.align.horizontal,
-	    expand = "none",
-            { -- Left widgets
-                layout = wibox.layout.fixed.horizontal,
-                s.mypromptbox,
-            },
-	    {
-		layout = wibox.layout.fixed.horizontal,
-		s.mytaglist,
-	    },
-            { -- Right widgets
-                layout = wibox.layout.fixed.horizontal,
-                mykeyboardlayout,
-                wibox.widget.systray(),
-                mytextclock,
-            },
+      layout = wibox.container.margin,
+      top = dpi(7),
+      left = dpi(7),
+      right = dpi(7),
+      {
+        { 
+          layout = wibox.layout.align.horizontal,
+          expand = "none",
+          { -- Left widgets
+          layout = wibox.layout.fixed.horizontal,
+          s.mypromptbox,
         },
-	top = dpi(7),
-	left = dpi(7),
-	right = dpi(7),
-	color = "#000000",
-	widget = wibox.container.margin,
-    }
+        {
+          layout = wibox.layout.fixed.horizontal,
+          s.mytaglist,
+        },
+        { -- Right widgets
+          layout = wibox.layout.fixed.horizontal,
+          mykeyboardlayout,
+          wibox.widget.systray(),
+          mytextclock,
+        },
+      },
+      bg     = "#191724",
+      widget = wibox.container.background,
+      shape              = gears.shape.rounded_rect,
+      shape_border_width = dpi(0),
+    },
+  }
 end)
 -- }}}
 
