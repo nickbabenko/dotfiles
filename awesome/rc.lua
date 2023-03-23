@@ -16,6 +16,7 @@ local dpi = xresources.apply_dpi
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local lain = require("lain")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -63,8 +64,10 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
+  lain.layout.termfair,
+  --lain.layout.centerwork,
     --awful.layout.suit.floating,
-    awful.layout.suit.tile,
+    --awful.layout.suit.tile,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
@@ -148,13 +151,17 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
+lain.layout.termfair.nmaster = 3
+lain.layout.termfair.ncol    = 1
+
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
     
     tag_config = {
       icon = gears.filesystem.get_configuration_dir() .. "icons/circle-regular.svg", 
-      layout             = awful.layout.suit.tile,
+      --layout             = awful.layout.suit.tile,
+      layout = lain.layout.termfair.center,
       master_fill_policy = "master_width_factor",
       gap_single_client  = true,
       screen = s,
@@ -208,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
           widget = wibox.container.margin
         },
         id     = 'background_role',
-        bg = "#ff0000",
+        bg = "#00ff0000",
         widget = wibox.container.background,
         create_callback = update_tag_icon,
         update_callback = update_tag_icon,
@@ -216,14 +223,14 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(50), bg = "#00000000" })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(30), bg = "#00000000" })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
       layout = wibox.container.margin,
-      top = dpi(7),
-      left = dpi(7),
-      right = dpi(7),
+      top = dpi(0),
+      left = dpi(0),
+      right = dpi(0),
       {
         { 
           layout = wibox.layout.align.horizontal,
@@ -245,8 +252,6 @@ awful.screen.connect_for_each_screen(function(s)
       },
       bg     = "#191724",
       widget = wibox.container.background,
-      shape              = gears.shape.rounded_rect,
-      shape_border_width = dpi(0),
     },
   }
 end)
@@ -283,8 +288,8 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+    --awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+    --          {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -380,8 +385,8 @@ clientkeys = gears.table.join(
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-              {description = "toggle keep on top", group = "client"}),
+    --awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
+    --          {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
@@ -507,7 +512,6 @@ awful.rules.rules = {
           "Kruler",
           "MessageWin",  -- kalarm.
           "Sxiv",
-          "Tor Browser", -- Needs a fixed window size to avoid fingerprinting by screen size.
           "Wpa_gui",
           "veromix",
           "xtightvncviewer"},

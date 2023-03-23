@@ -13,6 +13,8 @@ lsp.on_attach(function(client, bufnr)
 
   vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set('n', '<leader>ld', function() vim.diagnostic.open_float() end, opts)
+
 end)
 
 lsp.setup()
