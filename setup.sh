@@ -38,7 +38,7 @@ ln -sf ~/dotfiles/config/Brewfile ~/Brewfile
 ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/config/.alacritty.yml ~/.alacritty.yml
 ln -sf ~/dotfiles/config/hammerspoon ~/.hammerspoon
-ln -sf ~/dotfiles/config/astronvim .config/nvim/lua/user
+ln -sf ~/dotfiles/config/neovim ~/.config/nvim
 
 # Install brewfiles
 cd ~

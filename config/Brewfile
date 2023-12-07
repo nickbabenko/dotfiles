@@ -1,5 +1,4 @@
 # Shell tools
-cask "iterm2"
 brew "zsh"
 brew "zsh-syntax-highlighting"
 brew "tmux"
@@ -25,10 +24,6 @@ brew "tig"
 brew "lazygit"
 brew "git-delta"
 
-# Languages
-brew "node@12"
-brew "composer"
-
-# PHP
-brew "php-cs-fixer"
-
+tap "koekeishiya/formulae"
+brew "koekeishiya/formulae/yabai"
+brew "koekeishiya/formulae/skhd"
