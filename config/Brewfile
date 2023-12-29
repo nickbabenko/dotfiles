@@ -11,7 +11,7 @@ cask "hammerspoon"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 tap "romkatv/powerlevel10k"
-brew "romkatv/powerlevel10k/powerlevel10k"
+brew "powerlevel10k"
 
 # Vim tools
 brew "ripgrep"

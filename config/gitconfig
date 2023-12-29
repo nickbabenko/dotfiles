@@ -1,3 +1,5 @@
 [user]
 	name = Nick Babenko
 	email = nick.babenko@thehutgroup.com
+[init]
+	defaultBranch = main

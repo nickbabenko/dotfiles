@@ -14,6 +14,7 @@ if [[ $(command -v brew) == "" ]]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 else
   echo "Updating homebrew"
+  brew tap --repair
   brew update
 fi
 
@@ -45,22 +46,20 @@ cd ~
 brew bundle
 cd -
 
-echo "Installing NPM dependencies"
-npm install -g typescript typescript-language-server prettier \
-  vscode-html-languageserver-bin vscode-css-languageserver-bin \
-  @prettier/plugin-lua @prettier/plugin-php bash-language-server \
-  intelephense
+# echo "Installing NPM dependencies"
+# npm install -g typescript typescript-language-server prettier \
+#   vscode-html-languageserver-bin vscode-css-languageserver-bin \
+#   @prettier/plugin-lua @prettier/plugin-php bash-language-server \
+#   intelephense
 
 # Setup
-source ~/.zshrc
-
-# AstroNvim
-git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
-nvim +PackerSync
+# source ~/.zshrc
 
 # Tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
+if [[ ! -d ~/.tmux/plugins/tpm ]]
+then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 # Setup git hooks
 cp hooks/* .git/hooks
