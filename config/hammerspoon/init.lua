@@ -1,14 +1,14 @@
 require "window-management"
 require "key-binding"
 
-dofile(os.getenv("HOME") .. "/.config/hammerspoon.lua")
+-- dofile(os.getenv("HOME") .. "/.config/hammerspoon.lua")
 
 -- -----------------------------------------------------------------------
 --                            ** For Debug **                           --
 -- -----------------------------------------------------------------------
 function reloadConfig(files)
   local doReload = false
-  for _,file in pairs(files) do
+  for _, file in pairs(files) do
     if file:sub(-4) == ".lua" then
       doReload = true
     end
@@ -18,10 +18,15 @@ function reloadConfig(files)
     hs.alert.show('Config Reloaded')
   end
 end
+
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 
 -- Well, sometimes auto-reload is not working, you know u.u
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "n", function()
+hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "n", function()
   hs.reload()
 end)
 hs.alert.show("Config loaded")
+
+hs.hotkey.bind({ "cmd" }, "s", function()
+  hs.spaces.addSpaceToScreen(hs.screen.mainScreen())
+end)
