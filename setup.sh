@@ -32,6 +32,9 @@ sudo rm -rf ~/Brewfile > /dev/null 2>&1
 sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
 sudo rm -rf ~/.alacritty.yml > /dev/null 2>&1
 sudo rm -rf ~/.hammerspoon > /dev/null 2>&1
+sudo rm -rf ~/.yabairc > /dev/null 2>&1
+sudo rm -rf ~/.skhdrc > /dev/null 2>&1
+sudo rm -rf ~/.config/sketchybar > /dev/null 2>&1
 
 # Add symlinks
 ln -sf ~/dotfiles/config/zshrc ~/.zshrc
@@ -40,6 +43,9 @@ ln -sf ~/dotfiles/config/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/config/.alacritty.yml ~/.alacritty.yml
 ln -sf ~/dotfiles/config/hammerspoon ~/.hammerspoon
 ln -sf ~/dotfiles/config/neovim ~/.config/nvim
+ln -sf ~/dotfiles/config/yabairc ~/.yabairc
+ln -sf ~/dotfiles/config/skhdrc ~/.skhdrc
+ln -sf ~/dotfiles/config/sketchybar ~/.config/sketchybar
 
 # Install brewfiles
 cd ~
