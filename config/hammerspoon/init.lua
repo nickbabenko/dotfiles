@@ -30,3 +30,5 @@ hs.alert.show("Config loaded")
 hs.hotkey.bind({ "cmd" }, "s", function()
   hs.spaces.addSpaceToScreen(hs.screen.mainScreen())
 end)
+
+hs.ipc.cliInstall()

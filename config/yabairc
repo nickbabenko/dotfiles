@@ -19,4 +19,4 @@ yabai -m mouse_drop_action swap
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 
-yabai -m config external_bar all:49:0
+yabai -m config external_bar all:45:0

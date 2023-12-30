@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" "13" "14" "15")
+SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12")
 
 # Destroy space on right click, focus space on left click.
 # New space by left clicking separator (>)
@@ -12,20 +12,20 @@ do
   sid=$(($i+1))
 
   space=(
-    associated_space=$sid
-    icon=${SPACE_ICONS[i]}
+    space=$sid
+    icon="${SPACE_ICONS[i]}"
     icon.padding_left=10
-    icon.padding_right=15
+    icon.padding_right=10
     padding_left=2
     padding_right=2
-    label.padding_right=20
+    label.padding_right=0
     icon.highlight_color=$RED
+    label.color=$GREY
+    label.highlight_color=$WHITE
     label.font="sketchybar-app-font:Regular:16.0"
-    label.background.height=26
-    label.background.drawing=on
-    label.background.color=$BACKGROUND_2
-    label.background.corner_radius=8
-    label.drawing=off
+    label.y_offset=-1
+    background.color=$BACKGROUND_1
+    background.border_color=$BACKGROUND_2
     script="$PLUGIN_DIR/space.sh"
   )
 
@@ -34,14 +34,18 @@ do
              --subscribe space.$sid mouse.clicked
 done
 
-spaces=(
-  background.color=$BACKGROUND_1
-  background.border_color=$BACKGROUND_2
-  background.border_width=2
-  background.drawing=on
+space_creator=(
+  icon=􀆊
+  icon.font="$FONT:Heavy:16.0"
+  padding_left=10
+  padding_right=8
+  label.drawing=off
+  display=active
+  click_script='hs -c "hs.spaces.addSpaceToScreen(hs.screen.mainScreen())"'
+  script="$PLUGIN_DIR/space_windows.sh"
+  icon.color=$WHITE
 )
 
-sketchybar --add bracket spaces '/space\..*/' \
-           --set spaces "${spaces[@]}"        \
-                                              \
-           --add item separator left
+sketchybar --add item space_creator left               \
+           --set space_creator "${space_creator[@]}"   \
+           --subscribe space_creator space_windows_change

@@ -1,20 +1,37 @@
 #!/bin/bash
 
 update() {
-  WIDTH="dynamic"
+  source "$CONFIG_DIR/colors.sh"
+  COLOR=$BACKGROUND_2
   if [ "$SELECTED" = "true" ]; then
-    WIDTH="0"
+    COLOR=$GREY
   fi
+  sketchybar --set $NAME icon.highlight=$SELECTED \
+                         label.highlight=$SELECTED \
+                         background.border_color=$COLOR
+}
 
-  sketchybar --animate tanh 20 --set $NAME icon.highlight=$SELECTED label.width=$WIDTH
+set_space_label() {
+  sketchybar --set $NAME icon="$@"
 }
 
 mouse_clicked() {
+  # HS_SPACE_ID=$(hs -c 'hs.spaces.allSpaces()' | jq)
   if [ "$BUTTON" = "right" ]; then
-    yabai -m space --destroy $SID
-    sketchybar --trigger space_change --trigger windows_on_spaces
+    hs -c "hs.spaces.removeSpace('$SID')"
   else
-    yabai -m space --focus $SID 2>/dev/null
+    if [ "$MODIFIER" = "shift" ]; then
+      SPACE_LABEL="$(osascript -e "return (text returned of (display dialog \"Give a name to space $NAME:\" default answer \"\" with icon note buttons {\"Cancel\", \"Continue\"} default button \"Continue\"))")"
+      if [ $? -eq 0 ]; then
+        if [ "$SPACE_LABEL" = "" ]; then
+          set_space_label "${NAME:6}"
+        else
+          set_space_label "${NAME:6} ($SPACE_LABEL)"
+        fi
+      fi
+    else
+      hs -c "hs.spaces.gotoSpace('$SID')"
+    fi
   fi
 }
 
