@@ -7,7 +7,8 @@ require('mason').setup({
 require("mason-lspconfig").setup {
   ensure_installed = {
     -- "prettier",
-    "eslint", "tsserver", "graphql" },
+    "eslint", "tsserver", "graphql"
+  },
 }
 
 -- lsp.on_attach(function(client, bufnr)
@@ -63,6 +64,11 @@ local lsp_attach = function(client, bufnr)
       vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
     end, { buffer = bufnr, desc = "[lsp] format" })
   end
+
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    buffer = bufnr,
+    command = "EslintFixAll",
+  })
 end
 
 local lspconfig = require('lspconfig')
@@ -234,3 +240,10 @@ cmp.setup({
     end, { 'i', 's' }),
   },
 })
+
+require("ts-error-translator").setup()
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+  require("ts-error-translator").translate_diagnostics(err, result, ctx, config)
+  vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
+end

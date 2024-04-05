@@ -1,3 +1,4 @@
+
 local map = function(mode, lhs, rhs, opts)
   local options = { noremap = true }
   if opts then
@@ -11,3 +12,8 @@ map("i", "<Leader>q", "<Esc>:q<CR>", { silent = true })
 
 map("n", "<Leader>w", ":w<CR>", { silent = true })
 map("i", "<Leader>w", "<Esc>:w<CR>", { silent = true })
+
+vim.keymap.set({ "n", "x" }, "<leader>y", [["+y]]) -- copy to system clipboard
+vim.keymap.set({ "n", "x" }, "<leader>p", [["+p]]) -- paste from system clipboard
+
+-- vim.keymap.set('i', 'jk', '<ESC>')
