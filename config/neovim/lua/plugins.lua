@@ -29,6 +29,11 @@ require("lazy").setup({
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
+  { "szw/vim-maximizer",
+    keys = {
+      {"<leader>m", "<cmd>MaximizerToggle<CR>", desc = "Maximise/minimise a split" },
+    },
+  },
   "nvim-lua/plenary.nvim",
   { "nvim-telescope/telescope.nvim", tag = "0.1.5" },
   "neovim/nvim-lspconfig",

@@ -7,7 +7,7 @@ require('mason').setup({
 require("mason-lspconfig").setup {
   ensure_installed = {
     -- "prettier",
-    "eslint", "tsserver", "graphql"
+    "tsserver", "graphql"
   },
 }
 
@@ -65,10 +65,10 @@ local lsp_attach = function(client, bufnr)
     end, { buffer = bufnr, desc = "[lsp] format" })
   end
 
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    buffer = bufnr,
-    command = "EslintFixAll",
-  })
+  -- vim.api.nvim_create_autocmd("BufWritePre", {
+  --   buffer = bufnr,
+  --   command = "EslintFixAll",
+  -- })
 end
 
 local lspconfig = require('lspconfig')
@@ -81,25 +81,25 @@ require('mason-lspconfig').setup_handlers({
   end,
 })
 
-local prettier = require("prettier")
-
-prettier.setup({
-  bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
-  filetypes = {
-    "css",
-    "graphql",
-    "html",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "less",
-    "markdown",
-    "scss",
-    "typescript",
-    "typescriptreact",
-    "yaml",
-  },
-})
+-- local prettier = require("prettier")
+--
+-- prettier.setup({
+--   bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
+--   filetypes = {
+--     "css",
+--     "graphql",
+--     "html",
+--     "javascript",
+--     "javascriptreact",
+--     "json",
+--     "less",
+--     "markdown",
+--     "scss",
+--     "typescript",
+--     "typescriptreact",
+--     "yaml",
+--   },
+-- })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
